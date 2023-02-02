@@ -1,0 +1,27 @@
+﻿@model TodoTask
+@{
+    ViewData["Title"] = "Details for todo task";
+}
+<div class="row text">
+    <div class="col-md-8 offset-2">
+        <p>Details for Todo Task</p>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="form-group">
+                <label asp-for="Content" class="control-label"></label>
+                <input asp-for="Content" class="form-control" readonly/>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                <input type="date" asp-for="EndTime" class="form-control" readonly/>
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.CheckBoxFor(model => model.IsDone, new {@disabled = "disabled"})
+                @Html.LabelFor(c => c.IsDone)
+            </div>
+        </div>
+    </div>
+</div>
